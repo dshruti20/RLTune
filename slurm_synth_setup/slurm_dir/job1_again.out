@@ -1,0 +1,85 @@
+[2025-04-26 22:36:48,364] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-26 22:36:51,995] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1: setting --include=localhost:0,1
+[2025-04-26 22:36:51,995] [INFO] [runner.py:605:main] cmd = /home/cc/miniconda3/envs/env_slurm/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --name facebook/opt-2.7b
+[2025-04-26 22:36:54,146] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-26 22:36:57,667] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-04-26 22:36:57,667] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-04-26 22:36:57,667] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-04-26 22:36:57,667] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-04-26 22:36:57,668] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-04-26 22:36:57,668] [INFO] [launch.py:256:main] process 176228 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=0', '--name', 'facebook/opt-2.7b']
+[2025-04-26 22:36:57,669] [INFO] [launch.py:256:main] process 176229 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=1', '--name', 'facebook/opt-2.7b']
+[2025-04-26 22:37:01,486] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-26 22:37:01,554] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+Meta tensors not enabled, downloading the model...
+[2025-04-26 22:37:05,465] [INFO] [utils.py:781:see_memory_usage] before init
+[2025-04-26 22:37:05,466] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-26 22:37:05,467] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 4.52 GB, percent = 3.6%
+Meta tensors not enabled, downloading the model...
+Downloading the model time is: 21.385053157806396 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.001539468765258789 sec...
+DSPipeline process time is 21.803658723831177 sec
+initialization time: 21803.669691085815ms
+[2025-04-26 22:37:27,534] [INFO] [utils.py:781:see_memory_usage] after init
+[2025-04-26 22:37:27,536] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-26 22:37:27,537] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 23.73 GB, percent = 18.9%
+deepspeed.init_inference process time is 0.26631808280944824 sec
+[2025-04-26 22:37:27,759] [INFO] [utils.py:781:see_memory_usage] after init_inference
+[2025-04-26 22:37:27,760] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-26 22:37:27,761] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.16 GB, percent = 19.2%
+Downloading the model time is: 23.521772146224976 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0015227794647216797 sec...
+DSPipeline process time is 23.99212384223938 sec
+deepspeed.init_inference process time is 2.0742416381835938e-05 sec
+Traceback (most recent call last):
+  File "/home/cc/DS-examples/inference/huggingface/text-generation/slurm/inference-test.py", line 93, in <module>
+    outputs = pipe(inputs,
+  File "/home/cc/DS-examples/inference/huggingface/text-generation/slurm/utils.py", line 91, in __call__
+    outputs = self.generate_outputs(input_list, num_tokens=num_tokens, do_sample=do_sample)
+  File "/home/cc/DS-examples/inference/huggingface/text-generation/slurm/utils.py", line 133, in generate_outputs
+    self.model.cuda().to(self.device)
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3654, in cuda
+    return super().cuda(*args, **kwargs)
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1050, in cuda
+    return self._apply(lambda t: t.cuda(device))
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 900, in _apply
+    module._apply(fn)
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 900, in _apply
+    module._apply(fn)
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 900, in _apply
+    module._apply(fn)
+  [Previous line repeated 2 more times]
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 927, in _apply
+    param_applied = fn(param)
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1050, in <lambda>
+    return self._apply(lambda t: t.cuda(device))
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 15.89 GiB of which 27.12 MiB is free. Including non-PyTorch memory, this process has 7.78 GiB memory in use. Process 176229 has 8.08 GiB memory in use. Of the allocated memory 7.53 GiB is allocated by PyTorch, and 4.00 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+Traceback (most recent call last):
+  File "/home/cc/DS-examples/inference/huggingface/text-generation/slurm/inference-test.py", line 93, in <module>
+    outputs = pipe(inputs,
+  File "/home/cc/DS-examples/inference/huggingface/text-generation/slurm/utils.py", line 91, in __call__
+    outputs = self.generate_outputs(input_list, num_tokens=num_tokens, do_sample=do_sample)
+  File "/home/cc/DS-examples/inference/huggingface/text-generation/slurm/utils.py", line 133, in generate_outputs
+    self.model.cuda().to(self.device)
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/transformers/modeling_utils.py", line 3654, in cuda
+    return super().cuda(*args, **kwargs)
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1050, in cuda
+    return self._apply(lambda t: t.cuda(device))
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 900, in _apply
+    module._apply(fn)
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 900, in _apply
+    module._apply(fn)
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 900, in _apply
+    module._apply(fn)
+  [Previous line repeated 2 more times]
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 927, in _apply
+    param_applied = fn(param)
+  File "/home/cc/miniconda3/envs/env_slurm/lib/python3.10/site-packages/torch/nn/modules/module.py", line 1050, in <lambda>
+    return self._apply(lambda t: t.cuda(device))
+torch.OutOfMemoryError: CUDA out of memory. Tried to allocate 100.00 MiB. GPU 0 has a total capacity of 15.89 GiB of which 27.12 MiB is free. Process 176228 has 7.78 GiB memory in use. Including non-PyTorch memory, this process has 8.08 GiB memory in use. Of the allocated memory 7.83 GiB is allocated by PyTorch, and 3.88 MiB is reserved by PyTorch but unallocated. If reserved but unallocated memory is large try setting PYTORCH_CUDA_ALLOC_CONF=expandable_segments:True to avoid fragmentation.  See documentation for Memory Management  (https://pytorch.org/docs/stable/notes/cuda.html#environment-variables)
+[2025-04-26 22:37:42,714] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 176228
+[2025-04-26 22:37:42,739] [INFO] [launch.py:319:sigkill_handler] Killing subprocess 176229
+[2025-04-26 22:37:42,739] [ERROR] [launch.py:325:sigkill_handler] ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=1', '--name', 'facebook/opt-2.7b'] exits with return code = 1

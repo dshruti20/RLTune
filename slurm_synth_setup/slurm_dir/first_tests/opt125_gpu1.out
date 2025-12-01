@@ -1,0 +1,37 @@
+[2025-04-23 05:15:02,081] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-23 05:15:05,714] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0 but ignoring it because one or several of --include/--exclude/--num_gpus/--num_nodes cl args were used. If you want to use CUDA_VISIBLE_DEVICES don't pass any of these arguments to deepspeed.
+[2025-04-23 05:15:05,715] [INFO] [runner.py:605:main] cmd = /home/cc/miniconda3/envs/env_slurm/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --name facebook/opt-125m
+[2025-04-23 05:15:07,877] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-23 05:15:11,392] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0]}
+[2025-04-23 05:15:11,392] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=1, node_rank=0
+[2025-04-23 05:15:11,393] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2025-04-23 05:15:11,393] [INFO] [launch.py:164:main] dist_world_size=1
+[2025-04-23 05:15:11,393] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
+[2025-04-23 05:15:11,393] [INFO] [launch.py:256:main] process 98235 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=0', '--name', 'facebook/opt-125m']
+[2025-04-23 05:15:14,500] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-23 05:15:17,190] [INFO] [utils.py:781:see_memory_usage] before init
+[2025-04-23 05:15:17,191] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-23 05:15:17,191] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 3.89 GB, percent = 3.1%
+Meta tensors not enabled, downloading the model...
+Downloading the model time is: 1.3242123126983643 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0006175041198730469 sec...
+DSPipeline process time is 1.7791342735290527 sec
+initialization time: 1779.1435718536377ms
+[2025-04-23 05:15:19,121] [INFO] [utils.py:781:see_memory_usage] after init
+[2025-04-23 05:15:19,124] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-23 05:15:19,124] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 4.49 GB, percent = 3.6%
+deepspeed.init_inference process time is 0.1537947654724121 sec
+[2025-04-23 05:15:19,281] [INFO] [utils.py:781:see_memory_usage] after init_inference
+[2025-04-23 05:15:19,282] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-23 05:15:19,282] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 4.49 GB, percent = 3.6%
+generation time is 0.528355598449707 sec
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework that allows programmers to create a custom application with hundreds of new applications. A full-blown toolkit to easily code in this language in the DeepSpeed SDK allows developers to create software that is automatically applied to all DeepSpeed modules they build.
+
+
+------------------------------------------------------------
+Total time is 3.767364501953125 sec
+[2025-04-23 05:15:22,405] [INFO] [launch.py:351:main] Process 98235 exits successfully.

@@ -1,0 +1,104 @@
+[2025-04-28 06:01:44,667] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:01:48,294] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1,2,3: setting --include=localhost:0,1,2,3
+[2025-04-28 06:01:48,294] [INFO] [runner.py:605:main] cmd = /home/cc/miniconda3/envs/env_slurm/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --name facebook/opt-1.3b --batch_size 8
+[2025-04-28 06:01:50,420] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:01:53,963] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2025-04-28 06:01:53,963] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=4, node_rank=0
+[2025-04-28 06:01:53,963] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2025-04-28 06:01:53,963] [INFO] [launch.py:164:main] dist_world_size=4
+[2025-04-28 06:01:53,963] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2025-04-28 06:01:53,964] [INFO] [launch.py:256:main] process 219716 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=0', '--name', 'facebook/opt-1.3b', '--batch_size', '8']
+[2025-04-28 06:01:53,965] [INFO] [launch.py:256:main] process 219717 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=1', '--name', 'facebook/opt-1.3b', '--batch_size', '8']
+[2025-04-28 06:01:53,965] [INFO] [launch.py:256:main] process 219718 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=2', '--name', 'facebook/opt-1.3b', '--batch_size', '8']
+[2025-04-28 06:01:53,966] [INFO] [launch.py:256:main] process 219719 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=3', '--name', 'facebook/opt-1.3b', '--batch_size', '8']
+[2025-04-28 06:01:57,201] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:01:57,201] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:01:57,222] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:01:57,225] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:02:00,080] [INFO] [utils.py:781:see_memory_usage] before init
+[2025-04-28 06:02:00,081] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 06:02:00,081] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 5.49 GB, percent = 4.4%
+Meta tensors not enabled, downloading the model...
+Meta tensors not enabled, downloading the model...
+Meta tensors not enabled, downloading the model...
+Meta tensors not enabled, downloading the model...
+Downloading the model time is: 10.766804456710815 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0011522769927978516 sec...
+DSPipeline process time is 11.072030305862427 sec
+deepspeed.init_inference process time is 2.09808349609375e-05 sec
+Downloading the model time is: 11.578420400619507 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.002668619155883789 sec...
+DSPipeline process time is 11.98598337173462 sec
+initialization time: 11986.010313034058ms
+Downloading the model time is: 10.846084833145142 sec
+Now running self.model.eval()...
+Downloading the model time is: 10.843678712844849 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0011527538299560547 sec...
+DSPipeline process time is 11.125923156738281 sec
+deepspeed.init_inference process time is 2.2172927856445312e-05 sec
+Finished running self.model.eval(), which took 0.0011608600616455078 sec...
+DSPipeline process time is 11.124223232269287 sec
+deepspeed.init_inference process time is 2.1219253540039062e-05 sec
+[2025-04-28 06:02:12,391] [INFO] [utils.py:781:see_memory_usage] after init
+[2025-04-28 06:02:12,392] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 06:02:12,393] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.0 GB, percent = 19.1%
+deepspeed.init_inference process time is 0.32576942443847656 sec
+[2025-04-28 06:02:12,578] [INFO] [utils.py:781:see_memory_usage] after init_inference
+[2025-04-28 06:02:12,579] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 06:02:12,580] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 22.72 GB, percent = 18.1%
+generation time is 1.1271519660949707 sec
+Total time is 15.472952604293823 sec
+generation time is 1.1948792934417725 sec
+Total time is 15.52488660812378 sec
+generation time is 1.1320345401763916 sec
+Total time is 15.521633863449097 sec
+generation time is 1.1928350925445557 sec
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework 
+A bit late to the party, but this is still of course a useful tool. This is the second "deep learning framework" I'm aware of this week.
+I don't believe the difference between deep learning frameworks is that much deeper
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on that.
+I hope so. I think I was the first person to give him my email address. I'll make a request when he finishes that first round and we can chat again.
+------------------------------------------------------------
+
+in=He has a
+out=He has a face for radio and a body for MTV. This is great.
+I think we all have a face for radio and a body for television.
+------------------------------------------------------------
+
+in=He got all
+out=He got all that karma from all the times this was posted in /r/guitarist.
+Oh, I didn't know of that subreddit. I saw this for the first time on my frontpage and thought "I wonder where this picture came from?".
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can't wait to do all of the dishes!
+Haha! Well I hope you enjoy your day.
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year, Spotlight. It's a film about a local newspaper man ( Tom Hanks) and a small group of reporters who exposed a Catholic priest ( Kevin Costner ) for molesting children. The film is a great story about media exposure and how much
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, a group of stars orbiting a distant star called the Sun.
+We are closer to that star than any other star.
+The stars orbiting the sun are just as far away from us then we are.
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way out of these conflicts and they sure will never find it in the Islamic world, where peace is still a taboo. Peace, the Islamic world and a few other so called "secular" states will never achieve peace and justice. Islamic history is full
+------------------------------------------------------------
+Total time is 16.772477626800537 sec
+[2025-04-28 06:02:17,992] [INFO] [launch.py:351:main] Process 219719 exits successfully.
+[2025-04-28 06:02:17,992] [INFO] [launch.py:351:main] Process 219717 exits successfully.
+[2025-04-28 06:02:17,993] [INFO] [launch.py:351:main] Process 219718 exits successfully.
+[2025-04-28 06:02:18,994] [INFO] [launch.py:351:main] Process 219716 exits successfully.

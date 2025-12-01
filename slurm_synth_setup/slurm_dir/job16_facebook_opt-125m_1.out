@@ -1,0 +1,118 @@
+[2025-04-28 06:11:51,634] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:11:55,377] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0: setting --include=localhost:0
+[2025-04-28 06:11:55,378] [INFO] [runner.py:605:main] cmd = /home/cc/miniconda3/envs/env_slurm/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMF19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --name facebook/opt-125m --batch_size 16
+[2025-04-28 06:11:57,548] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:12:01,083] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0]}
+[2025-04-28 06:12:01,083] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=1, node_rank=0
+[2025-04-28 06:12:01,083] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0]})
+[2025-04-28 06:12:01,083] [INFO] [launch.py:164:main] dist_world_size=1
+[2025-04-28 06:12:01,083] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0
+[2025-04-28 06:12:01,084] [INFO] [launch.py:256:main] process 224155 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=0', '--name', 'facebook/opt-125m', '--batch_size', '16']
+[2025-04-28 06:12:04,184] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:12:06,899] [INFO] [utils.py:781:see_memory_usage] before init
+[2025-04-28 06:12:06,900] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 06:12:06,900] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 3.92 GB, percent = 3.1%
+Meta tensors not enabled, downloading the model...
+Downloading the model time is: 1.0975298881530762 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0011699199676513672 sec...
+DSPipeline process time is 1.3997557163238525 sec
+initialization time: 1399.7719287872314ms
+[2025-04-28 06:12:08,485] [INFO] [utils.py:781:see_memory_usage] after init
+[2025-04-28 06:12:08,487] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 06:12:08,488] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 4.48 GB, percent = 3.6%
+deepspeed.init_inference process time is 0.18825721740722656 sec
+[2025-04-28 06:12:08,633] [INFO] [utils.py:781:see_memory_usage] after init_inference
+[2025-04-28 06:12:08,634] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 06:12:08,634] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 4.49 GB, percent = 3.6%
+generation time is 0.6031222343444824 sec
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework for automating deep learning and machine learning inference. DeepSpeed is a powerful, multi-factor machine learning framework for artificial intelligence. As with many of its competitors, DeepSpeed delivers unmatched performance throughout the machine learning process. We believe DeepSpeed was developed
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on some crazy shit though... I think this is the guy.
+Yeah, and he's so good I can see him making more money with the money he makes being so busy and shit.
+------------------------------------------------------------
+
+in=He has a
+out=He has a big head
+He had a big arm
+------------------------------------------------------------
+
+in=He got all
+out=He got all our votes so let’s hope he has a strong campaign.
+I don’t support Sanders but he is clearly having a hard time convincing us that he does not live up to our ideals – if anything we should be worried about his
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can just imagine how much less than it would have been in my day if my life hadn't been turned around so quickly.  It is worth the investment though
+Yeah they have saved way more than it would have. There is even a couple million dollars
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year will be called The Blacklist
+They've got a pretty big cast, including Natalie Portman, John Wick: A Ghost Hunter, and a slew of new movies, which includes a new musical, a new horror film, and other big hits.
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, just out of reach of you. Maybe we can get together some days.
+LOL i know thats a joke but we can, I promise. Just out of our distance, like out of reach of you,
+Yeah that's a good idea
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way to stop the spread of bad things - not the other way around.
+
+Tuesday, July 13, 2013
+
+What does life have ever done for you? That question will soon turn to how you make the best of it because it seems as
+------------------------------------------------------------
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework that scales algorithms for the speed and scalability of distributed machines. You'll learn how and how to get to the edge (and how to keep getting to top of it) and see how the hardware stack performs on the machine at all times.
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on a new music that is to hit the masses in the next year or 2. Probably gonna be a big influence for the next album, though
+------------------------------------------------------------
+
+in=He has a
+out=He has a big belly. He looks nothing like a fat guy. His fat belly is what causes him to have these big stomach issues.
+And he has all those crazy boobs.
+------------------------------------------------------------
+
+in=He got all
+out=He got all those pukey face bumps so bad. It's very gross.
+Yeah.   It hurts me when i think about it for a second lol
+Is that some kind of weird fetish? People do this in Japan.
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can't remember a time when a player who gets a 2:2 penalty in a game was on an equal pitch! You have to keep the same ratio of goalkeepers to make up for it
+How does a player get 1:2 if he is
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year after 3 Years in the Cinema
+
+The new movie that got Oscar this year after 3 Years in the Cinema
+
+The film that got Oscar this year after 3 Years in the Cinema:
+
+A little under a decade ago, we were hearing
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, it just moves away.
+I got a strange kind of feeling.
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way.
+Yea and it's true.  I wish that was the case.
+------------------------------------------------------------
+Total time is 3.5699689388275146 sec
+[2025-04-28 06:12:12,096] [INFO] [launch.py:351:main] Process 224155 exits successfully.

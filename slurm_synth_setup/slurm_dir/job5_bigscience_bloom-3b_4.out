@@ -1,0 +1,119 @@
+[2025-04-28 05:55:45,315] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:55:48,986] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1,2,3: setting --include=localhost:0,1,2,3
+[2025-04-28 05:55:48,986] [INFO] [runner.py:605:main] cmd = /home/cc/miniconda3/envs/env_slurm/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMSwgMiwgM119 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --name bigscience/bloom-3b --batch_size 8
+[2025-04-28 05:55:51,115] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:55:54,635] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1, 2, 3]}
+[2025-04-28 05:55:54,635] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=4, node_rank=0
+[2025-04-28 05:55:54,635] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1, 2, 3]})
+[2025-04-28 05:55:54,635] [INFO] [launch.py:164:main] dist_world_size=4
+[2025-04-28 05:55:54,635] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1,2,3
+[2025-04-28 05:55:54,636] [INFO] [launch.py:256:main] process 218378 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=0', '--name', 'bigscience/bloom-3b', '--batch_size', '8']
+[2025-04-28 05:55:54,637] [INFO] [launch.py:256:main] process 218379 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=1', '--name', 'bigscience/bloom-3b', '--batch_size', '8']
+[2025-04-28 05:55:54,637] [INFO] [launch.py:256:main] process 218380 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=2', '--name', 'bigscience/bloom-3b', '--batch_size', '8']
+[2025-04-28 05:55:54,638] [INFO] [launch.py:256:main] process 218381 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=3', '--name', 'bigscience/bloom-3b', '--batch_size', '8']
+[2025-04-28 05:55:57,826] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:55:57,826] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:55:57,828] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:55:57,840] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:56:00,725] [INFO] [utils.py:781:see_memory_usage] before init
+[2025-04-28 05:56:00,726] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 05:56:00,726] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 5.47 GB, percent = 4.4%
+Meta tensors not enabled, downloading the model...
+Meta tensors not enabled, downloading the model...
+Meta tensors not enabled, downloading the model...
+Meta tensors not enabled, downloading the model...
+Downloading the model time is: 26.9165997505188 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0014717578887939453 sec...
+DSPipeline process time is 28.512001276016235 sec
+deepspeed.init_inference process time is 1.3828277587890625e-05 sec
+Downloading the model time is: 27.583786249160767 sec
+Now running self.model.eval()...
+Downloading the model time is: 27.615099906921387 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0014729499816894531 sec...
+DSPipeline process time is 29.216185331344604 sec
+deepspeed.init_inference process time is 1.3113021850585938e-05 sec
+Finished running self.model.eval(), which took 0.0014925003051757812 sec...
+DSPipeline process time is 29.22311758995056 sec
+deepspeed.init_inference process time is 1.5735626220703125e-05 sec
+Downloading the model time is: 27.637138605117798 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0015263557434082031 sec...
+DSPipeline process time is 30.126726627349854 sec
+initialization time: 30126.740217208862ms
+[2025-04-28 05:56:31,089] [INFO] [utils.py:781:see_memory_usage] after init
+[2025-04-28 05:56:31,090] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 05:56:31,090] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 48.23 GB, percent = 38.3%
+deepspeed.init_inference process time is 0.2372279167175293 sec
+[2025-04-28 05:56:31,299] [INFO] [utils.py:781:see_memory_usage] after init_inference
+[2025-04-28 05:56:31,300] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 05:56:31,300] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 47.69 GB, percent = 37.9%
+generation time is 2.0396008491516113 sec
+Total time is 36.655792236328125 sec
+generation time is 2.0589241981506348 sec
+Total time is 37.30672740936279 sec
+generation time is 2.042576551437378 sec
+Total time is 37.538540840148926 sec
+generation time is 2.065354347229004 sec
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework that integrates deep learning with machine learning. The framework supports the Deep Learning, CNN and ResNet-based deep feature extraction and deep learning. With a simple API, anyone can learn deep learning, such as TensorFlow deep learning framework. The framework has
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on two more novels. You can find out more at
+I wouldn’t want to make you go to a theater this afternoon, but my family has been there for too long now. I was wondering if anyone had read any of “Mr. Pick
+------------------------------------------------------------
+
+in=He has a
+out=He has a strong and vibrant voice, and the way he enunciated every word was flawless, just like the music – which was the most prominent and enjoyable segment of the whole thing. He’s obviously very good at his job to be vocalising his
+------------------------------------------------------------
+
+in=He got all
+out=He got all dressed.
+- Are you sure?
+- Yeah, I do.
+So.
+Are you sure?
+- Yeah.
+- Really?
+Yeah.
+Oh.
+Thank you.
+You're welcome.
+Thank you.
+So this is what your first day at high school
+is
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can see that all those that have gone home and have been there will be there because of what we’ve done.
+On this very Tuesday (June 17) and at the latest during the first few weeks of September, a number of schools in the country will
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year by an unorthodox method was also the best movie this year, the Academy announced Saturday.
+The film, starring Jennifer Lawrence, Michael Keaton and Matt Dillon, is the first picture for the trio since 2015’s “The Wolf of Wall Street
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, in the direction where we see the Milky Way, we see a small region of high star formation.
+In the Galaxy we see spiral arms out to at least 1.5 kpc, where the most luminous stars are being formed. In this
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way forward and it will be our path.
+And I pray that none, but not one, among our own people, will join the enemy.
+All right?
+There.
+You see?
+It's only a scratch.
+If we don't get them off to an early
+------------------------------------------------------------
+Total time is 38.72282862663269 sec
+[2025-04-28 05:56:39,684] [INFO] [launch.py:351:main] Process 218381 exits successfully.
+[2025-04-28 05:56:40,686] [INFO] [launch.py:351:main] Process 218379 exits successfully.
+[2025-04-28 05:56:40,686] [INFO] [launch.py:351:main] Process 218378 exits successfully.
+[2025-04-28 05:56:40,686] [INFO] [launch.py:351:main] Process 218380 exits successfully.

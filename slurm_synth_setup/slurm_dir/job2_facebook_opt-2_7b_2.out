@@ -1,0 +1,205 @@
+[2025-04-28 05:40:05,514] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:40:09,225] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1: setting --include=localhost:0,1
+[2025-04-28 05:40:09,225] [INFO] [runner.py:605:main] cmd = /home/cc/miniconda3/envs/env_slurm/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --name facebook/opt-2.7b --batch_size 32
+[2025-04-28 05:40:11,403] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:40:14,926] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-04-28 05:40:14,926] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-04-28 05:40:14,927] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-04-28 05:40:14,927] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-04-28 05:40:14,927] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-04-28 05:40:14,927] [INFO] [launch.py:256:main] process 204954 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=0', '--name', 'facebook/opt-2.7b', '--batch_size', '32']
+[2025-04-28 05:40:14,928] [INFO] [launch.py:256:main] process 204955 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=1', '--name', 'facebook/opt-2.7b', '--batch_size', '32']
+[2025-04-28 05:40:18,081] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:40:18,115] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:40:20,852] [INFO] [utils.py:781:see_memory_usage] before init
+[2025-04-28 05:40:20,853] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 05:40:20,854] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 4.48 GB, percent = 3.6%
+Meta tensors not enabled, downloading the model...
+Meta tensors not enabled, downloading the model...
+Downloading the model time is: 18.313623905181885 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0014944076538085938 sec...
+DSPipeline process time is 19.029372215270996 sec
+deepspeed.init_inference process time is 2.2649765014648438e-05 sec
+Downloading the model time is: 18.935603141784668 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0035719871520996094 sec...
+DSPipeline process time is 19.304524898529053 sec
+initialization time: 19304.551362991333ms
+[2025-04-28 05:40:40,409] [INFO] [utils.py:781:see_memory_usage] after init
+[2025-04-28 05:40:40,410] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 05:40:40,410] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 23.89 GB, percent = 19.0%
+deepspeed.init_inference process time is 0.2520310878753662 sec
+[2025-04-28 05:40:40,574] [INFO] [utils.py:781:see_memory_usage] after init_inference
+[2025-04-28 05:40:40,575] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 05:40:40,576] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 23.27 GB, percent = 18.5%
+generation time is 5.149358034133911 sec
+Total time is 31.834296941757202 sec
+generation time is 5.15890908241272 sec
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework for building scalable, self-adaptive, fully-localized, distributed, machine learning solutions. DeepSpeed helps you train, classify, optimize, and validate complex models with state-of-the-art hardware acceleration, using a scalable architecture that
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on a movie about John Lennon
+I would watch the shit out of that.
+Oh, he's gonna be all over that.
+Who?
+------------------------------------------------------------
+
+in=He has a
+out=He has a few books out of all the books I have read they are all good books, definitely check em out but I personally love the dark tower saga, I don't really know what else to say sorry. Have you considered finding an audiobook of the King
+------------------------------------------------------------
+
+in=He got all
+out=He got all the cool stuff.
+You were the chosen one to bring all the cool stuff and you only brought half! Are you the chosen one ?
+We brought half the cool stuff and now he must pay the toll!
+There is only one lord who
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can't watch my team.
+I can watch the Raiders so they are just a little bit better.
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year is going to be better, but not by much. Both films are great.
+It seems I have a movie to watch...
+The Tree of Life will leave you speechless
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, somewhere, somewhere in a universe that is much larger than our own, there lies the Higgs boson. This particle is one of the building blocks that build up the field that gives matter its mass. These particles have to be very far away,
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way to live, and if you must live with violence, at least let it be against Nazis. If only I had the resources, I'd be volunteering to go to the beach with you to shoot Nazis.
+Why not let it be against the right
+------------------------------------------------------------
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework for Deeplearning and data mining that supports large-scale distributed processing. It is very similar to Google's popular Flutter and supports OpenAI's GPT3 and Caffe2.
+
+With DeepSpeed, you can do everything the normal neural
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on an old save/s where he is very strong. It will be very interesting to see him do a whole new build once his old one is finished. I also wonder if there would be a way to have someone take over for a while while he
+------------------------------------------------------------
+
+in=He has a
+out=He has a girlfriend you say... I say he needs to let go of the dreams of being a man and just be a little boy.
+She actually broke up with him...and he has turned into a little boy? I don't understand how that is possible
+------------------------------------------------------------
+
+in=He got all
+out=He got all that cash, and he still doesn't have sex with his wife?
+Not that he is proud of, but she's still hot, and has been known to give oral sex from time to time. They're still happily married.
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can only assume they're rich.
+You can't even dream of a world with no poverty. It is a fantasy.
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year just won a Golden Globe for supporting actor. This is a pretty exciting news for me.
+I didn't know that. I had no idea she was a golden globes nominee.
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, an entire civilization has descended upon a single planet. The planet seems to be relatively uninhabited and the inhabitants have seemingly forgotten of their previous civilization. They seem to be happy living their lives and don’t seem to have any need for weapons
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way.   And with all of the religious nutters and crazies around now,  it's going to take all of the good people and the sane to make it happen.   A lot of the best ideas in this world have come from
+------------------------------------------------------------
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework using reinforcement and learning to model performance in the deep learning (DL) paradigm. DeepSpeed is a non-commercial, open source software project and is primarily focused on performance optimization and research. DeepSpeed is written in C++ and OpenCL, and
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on a project similar to what we've all been waiting for. I know there are some pretty high-profile names taking part, but I can't recall any names off the top of my head.
+I had no idea he worked on this! It
+------------------------------------------------------------
+
+in=He has a
+out=He has a good point about how everyone is different and doesn't need a book/manual. If people were happier and less shitty I would too. The more I think about it he may be right. I'd have gotten there eventually on my own. I
+------------------------------------------------------------
+
+in=He got all
+out=He got all his stuff stolen and all his cash. So maybe he didn't learn a damn thing.
+And now it’s all back.
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can't really think of a reason why they're not.    There isn't anything major left to be done, we have a couple of promising young players and some decent youth. With a strong manager we can hopefully push on again.
+Who
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year is not even worthy of being called a movie.  I watched it yesterday, I was so disappointed and I just don't even know how the movie got nominated.
+you mean a drama. "The Square" is definitely a film. it is
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, beyond the edge of our observable starfield, there is another galaxy forming. Called the Messier 67 cluster, it lies at a staggering distance of 4.4 light years…
+
+There are very few things which could have been more exciting than the
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way forward, President Alvi
+Share:
+KARACHI - President Dr. Arif Alvi has said that only peace can pave way to the development and prosperity of the country. He also warned the parties which were taking the path of extremism
+------------------------------------------------------------
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework for real-time data
+processing, designed to allow users to take advantage of modern
+computing power without having to learn any of the underlying
+technical infrastructure. It is especially well suited to the
+real-time processing fields, such as sensor
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on a more advanced version of it but he won't release it because he doesn't want to give away his secrets. What really frustrates me is that I have the exact list in my head that he uses but can't seem to replicate it.
+
+------------------------------------------------------------
+
+in=He has a
+out=He has a serious case of the stupid
+He'd do anything with her
+------------------------------------------------------------
+
+in=He got all
+out=He got all dressed up just to watch *the news,* and then he got to go home and watch *The View?* What a sad, entitled generation we live in.
+I would like to know too.
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can't even see them for it seems like such a wonderful thing for you and your friends. This sounds like the perfect time to celebrate. The only thing is that they are too young to understand and may get hurt in the process. Please hold off to
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year, La La Land, also won an award with a very different message.
+
+“When you think back on any year, the thing that really stands out for me is the incredible human beings that we honor – those who we want to aspire
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, a single solitary galaxy is being slowly gobbled by what seems to be an enormous black hole.
+We're just going to have to hope it's a nice friendly black hole...
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way. Why would you want to be apart of something that could destroy so much more with such a little gain?
+I'm not sure if you have realized this, or not, but all forms of organization is inherently harmful.     
+------------------------------------------------------------
+Total time is 32.56395506858826 sec
+[2025-04-28 05:40:54,968] [INFO] [launch.py:351:main] Process 204955 exits successfully.
+[2025-04-28 05:40:54,968] [INFO] [launch.py:351:main] Process 204954 exits successfully.

@@ -1,0 +1,17 @@
+model,GPU type,Num of GPUs,batch_size,dataset,epochs,mode
+resnet152,P100,1,64,mnist,2,
+facebook/opt1.3b,P100,4,8,,,
+densenet121,P100,4,32,mnist,4,dp
+resnet50,P100,2,128,cifar100,6,dp
+densenet201,P100,1,64,cifar100,2,
+bigscience/bloom-3b,P100,1,2,,,
+bigscience/bloom-3b,P100,2,4,,,
+facebook/opt350m,P100,1,8,,,
+resnet101,P100,2,64,cifar10,4,ddp
+resnet152,P100,2,128,cifar100,2,dp
+resnet18,P100,4,32,cifar10,8,dp
+facebook/opt125m,P100,4,32,,,
+facebook/opt2.7b,P100,2,8,,,
+resnet101,P100,4,64,mnist,3,dp
+facebook/opt125m,P100,4,16,,,
+facebook/opt2.7b,P100,1,1,,,

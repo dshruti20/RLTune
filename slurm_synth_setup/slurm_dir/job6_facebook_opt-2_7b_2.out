@@ -1,0 +1,84 @@
+[2025-04-28 05:56:47,303] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:56:51,389] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1: setting --include=localhost:0,1
+[2025-04-28 05:56:51,389] [INFO] [runner.py:605:main] cmd = /home/cc/miniconda3/envs/env_slurm/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --name facebook/opt-2.7b --batch_size 8
+[2025-04-28 05:56:53,534] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:56:57,264] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-04-28 05:56:57,264] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-04-28 05:56:57,264] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-04-28 05:56:57,264] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-04-28 05:56:57,264] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-04-28 05:56:57,265] [INFO] [launch.py:256:main] process 219084 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=0', '--name', 'facebook/opt-2.7b', '--batch_size', '8']
+[2025-04-28 05:56:57,265] [INFO] [launch.py:256:main] process 219085 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=1', '--name', 'facebook/opt-2.7b', '--batch_size', '8']
+[2025-04-28 05:57:00,415] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:57:00,433] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 05:57:03,365] [INFO] [utils.py:781:see_memory_usage] before init
+[2025-04-28 05:57:03,366] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 05:57:03,366] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 4.54 GB, percent = 3.6%
+Meta tensors not enabled, downloading the model...
+Meta tensors not enabled, downloading the model...
+Downloading the model time is: 7.735677242279053 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0034885406494140625 sec...
+DSPipeline process time is 8.07283902168274 sec
+initialization time: 8072.8631019592285ms
+[2025-04-28 05:57:11,695] [INFO] [utils.py:781:see_memory_usage] after init
+[2025-04-28 05:57:11,696] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 05:57:11,696] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.74 GB, percent = 19.7%
+deepspeed.init_inference process time is 0.2570662498474121 sec
+Downloading the model time is: 7.834469318389893 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0015442371368408203 sec...
+DSPipeline process time is 8.11963415145874 sec
+deepspeed.init_inference process time is 2.3365020751953125e-05 sec
+[2025-04-28 05:57:11,855] [INFO] [utils.py:781:see_memory_usage] after init_inference
+[2025-04-28 05:57:11,855] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 05:57:11,856] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.26 GB, percent = 19.3%
+generation time is 1.9521420001983643 sec
+Total time is 14.577051877975464 sec
+generation time is 1.9534728527069092 sec
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework written in Python that aims to provide researchers with a simple, declarative model for generating high-level features. DeepSpeed enables users to generate features more quickly and with more precision than traditional machine learning processes, and it runs in the general Python environment
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on the same thing. I had a guy over a few nights ago and we had a blast.
+It’ll be ready. He only lives like 7 miles from my house.
+------------------------------------------------------------
+
+in=He has a
+out=He has a point.  You do have the option of taking the loss though.  You can just not go as his companion.
+I was talking about my character, and that I don't understand as some people complain about it, but I don't understand
+------------------------------------------------------------
+
+in=He got all
+out=He got all his buffs back.  The nerfs to his Q and E were very slight, but other than that they weren't really that bad.  It has made him far more manageable in the jungle.  Before the last rework the jungle was a
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can get my ass beat for no reason.
+Well if your an alpha female than yes that happens frequently.
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year?
+The Lego Movie, the second one
+There's also a new one this summer, right?
+Yes it's called "the world's end"
+And a fifth one in October!
+and then a sixth one a year and a
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, in a universe only billions of light years long, stands the giant black hole, an object with a gravitational field that’s 1,000, times stronger than the one you feel when you look for the toilet in your bathroom. On the surface
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way
+Agreed and I do not mean political peaces but emotional ones for example.
+Yeah and that means going back to religion and being forced to hate others like I did to my parents.   Just look at the shit we have on this
+------------------------------------------------------------
+Total time is 14.977964162826538 sec
+[2025-04-28 05:57:20,289] [INFO] [launch.py:351:main] Process 219085 exits successfully.
+[2025-04-28 05:57:20,289] [INFO] [launch.py:351:main] Process 219084 exits successfully.

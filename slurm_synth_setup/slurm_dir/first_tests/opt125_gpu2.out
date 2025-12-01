@@ -1,0 +1,46 @@
+[2025-04-23 05:16:59,396] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-23 05:17:02,983] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1 but ignoring it because one or several of --include/--exclude/--num_gpus/--num_nodes cl args were used. If you want to use CUDA_VISIBLE_DEVICES don't pass any of these arguments to deepspeed.
+[2025-04-23 05:17:02,984] [INFO] [runner.py:605:main] cmd = /home/cc/miniconda3/envs/env_slurm/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --name facebook/opt-125m
+[2025-04-23 05:17:05,156] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-23 05:17:08,714] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-04-23 05:17:08,714] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-04-23 05:17:08,714] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-04-23 05:17:08,714] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-04-23 05:17:08,714] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-04-23 05:17:08,715] [INFO] [launch.py:256:main] process 98450 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=0', '--name', 'facebook/opt-125m']
+[2025-04-23 05:17:08,716] [INFO] [launch.py:256:main] process 98451 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=1', '--name', 'facebook/opt-125m']
+[2025-04-23 05:17:12,692] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-23 05:17:13,472] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-23 05:17:15,962] [INFO] [utils.py:781:see_memory_usage] before init
+[2025-04-23 05:17:15,963] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-23 05:17:15,964] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 4.29 GB, percent = 3.4%
+Meta tensors not enabled, downloading the model...
+Meta tensors not enabled, downloading the model...
+Downloading the model time is: 2.0723941326141357 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0012485980987548828 sec...
+DSPipeline process time is 2.642261028289795 sec
+initialization time: 2642.2767639160156ms
+Downloading the model time is: 1.8139424324035645 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0012516975402832031 sec...
+DSPipeline process time is 2.4120864868164062 sec
+deepspeed.init_inference process time is 2.09808349609375e-05 sec
+[2025-04-23 05:17:18,841] [INFO] [utils.py:781:see_memory_usage] after init
+[2025-04-23 05:17:18,842] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-23 05:17:18,842] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 5.57 GB, percent = 4.4%
+deepspeed.init_inference process time is 0.23647785186767578 sec
+[2025-04-23 05:17:19,053] [INFO] [utils.py:781:see_memory_usage] after init_inference
+[2025-04-23 05:17:19,054] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-23 05:17:19,055] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 5.65 GB, percent = 4.5%
+generation time is 0.7078251838684082 sec
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework for learning and simulation using the SLS architecture. It's fully functional in a way that doesn't impose additional workloads on the main server. It doesn't require additional performance tests to be run on the main server. The language also supports both the
+------------------------------------------------------------
+Total time is 5.334568977355957 sec
+generation time is 0.8103945255279541 sec
+Total time is 5.541858434677124 sec
+[2025-04-23 05:17:22,730] [INFO] [launch.py:351:main] Process 98450 exits successfully.
+[2025-04-23 05:17:23,732] [INFO] [launch.py:351:main] Process 98451 exits successfully.

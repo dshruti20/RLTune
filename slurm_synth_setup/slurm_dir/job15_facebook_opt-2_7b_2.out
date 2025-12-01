@@ -1,0 +1,218 @@
+[2025-04-28 06:11:06,723] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:11:10,371] [WARNING] [runner.py:215:fetch_hostfile] Unable to find hostfile, will proceed with training with local resources only.
+Detected VISIBLE_DEVICES=0,1: setting --include=localhost:0,1
+[2025-04-28 06:11:10,371] [INFO] [runner.py:605:main] cmd = /home/cc/miniconda3/envs/env_slurm/bin/python -u -m deepspeed.launcher.launch --world_info=eyJsb2NhbGhvc3QiOiBbMCwgMV19 --master_addr=127.0.0.1 --master_port=29500 --enable_each_rank_log=None inference-test.py --name facebook/opt-2.7b --batch_size 32
+[2025-04-28 06:11:12,517] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:11:16,062] [INFO] [launch.py:146:main] WORLD INFO DICT: {'localhost': [0, 1]}
+[2025-04-28 06:11:16,063] [INFO] [launch.py:152:main] nnodes=1, num_local_procs=2, node_rank=0
+[2025-04-28 06:11:16,063] [INFO] [launch.py:163:main] global_rank_mapping=defaultdict(<class 'list'>, {'localhost': [0, 1]})
+[2025-04-28 06:11:16,063] [INFO] [launch.py:164:main] dist_world_size=2
+[2025-04-28 06:11:16,063] [INFO] [launch.py:168:main] Setting CUDA_VISIBLE_DEVICES=0,1
+[2025-04-28 06:11:16,063] [INFO] [launch.py:256:main] process 223836 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=0', '--name', 'facebook/opt-2.7b', '--batch_size', '32']
+[2025-04-28 06:11:16,064] [INFO] [launch.py:256:main] process 223837 spawned with command: ['/home/cc/miniconda3/envs/env_slurm/bin/python', '-u', 'inference-test.py', '--local_rank=1', '--name', 'facebook/opt-2.7b', '--batch_size', '32']
+[2025-04-28 06:11:19,204] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:11:19,216] [INFO] [real_accelerator.py:239:get_accelerator] Setting ds_accelerator to cuda (auto detect)
+[2025-04-28 06:11:22,015] [INFO] [utils.py:781:see_memory_usage] before init
+[2025-04-28 06:11:22,016] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 06:11:22,017] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 4.54 GB, percent = 3.6%
+Meta tensors not enabled, downloading the model...
+Meta tensors not enabled, downloading the model...
+Downloading the model time is: 7.836197853088379 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.00153350830078125 sec...
+DSPipeline process time is 8.210569143295288 sec
+initialization time: 8210.582256317139ms
+Downloading the model time is: 7.819878578186035 sec
+Now running self.model.eval()...
+Finished running self.model.eval(), which took 0.0015025138854980469 sec...
+DSPipeline process time is 8.117276906967163 sec
+deepspeed.init_inference process time is 1.7642974853515625e-05 sec
+[2025-04-28 06:11:30,443] [INFO] [utils.py:781:see_memory_usage] after init
+[2025-04-28 06:11:30,444] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 06:11:30,444] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.7 GB, percent = 19.6%
+deepspeed.init_inference process time is 0.21666240692138672 sec
+[2025-04-28 06:11:30,600] [INFO] [utils.py:781:see_memory_usage] after init_inference
+[2025-04-28 06:11:30,600] [INFO] [utils.py:782:see_memory_usage] MA 0.0 GB         Max_MA 0.0 GB         CA 0.0 GB         Max_CA 0 GB 
+[2025-04-28 06:11:30,601] [INFO] [utils.py:789:see_memory_usage] CPU Virtual Memory:  used = 24.06 GB, percent = 19.1%
+generation time is 5.1430823802948 sec
+Total time is 21.12486720085144 sec
+generation time is 5.146775484085083 sec
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework inspired by deep learning. It's based on Keras and uses a small and concise language called PySpark. DeepSpeed has been used for a number of practical projects, including the following:
+
+In this episode of Deep Speed, I will
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on the new project, because his next movie will be with Disney.  So its not like he's wasting time with Star Wars when there is a billion dollar movie franchise coming out in the next couple years
+His next movie is for Disney? I thought
+------------------------------------------------------------
+
+in=He has a
+out=He has a point. He has never been able to talk about that aspect of his life and now its a little harder than it was for him to find a lawyer before. But yes, some people seem to think this is going to be the downfall of his life
+------------------------------------------------------------
+
+in=He got all
+out=He got all those kids from poor neighbourhoods and made them into successful rappers
+Like the kinks. He's literally the kinks. That's a genius idea.
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can't find my damn keys
+But they are right there. They're just in your pocket.
+Or somewhere other than my pocket. It's gotten really annoying.
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year with the biggest opening ever in Korea  was The Great Detective. There was the huge movie opening of a new drama to a little over 200,000 viewers  and a huge movie opening of a new movie (Jirachi the Movie) to a
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, are galaxies forming new stars like crazy?
+It’s hard to say. It definitely happens, but you need a lot of stars to make galaxies, so it could explain only a small fraction of galaxy formation. More evidence for rapid galaxy formation
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way,
+no violence, no fighting.
+We are one.
+In the name of the Father, Son, and Holy Ghost.
+Our God who made heaven and earth.
+Amen.
+------------------------------------------------------------
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework that helps to accelerate the search performance. The machine learning algorithm combines many different machine learning strategies to find very similar documents that should be similar to each other. The deep learning framework can accelerate your content optimization processes.
+
+The speed of content optimization has
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on something, so i guess there will be an update soon
+Yeah, he has been working nonstop for a year, it's not an easy process with life and school and everything.
+------------------------------------------------------------
+
+in=He has a
+out=He has a strong presence on the floor and is an absolute menace in the post. His lack of size isn't a concern, he will eventually become like 7foot
+I'm afraid we just traded away the best pure post scorer. The way I see it,
+------------------------------------------------------------
+
+in=He got all
+out=He got all the attention today because he was on the radio.
+He's always been in mainstream media like The Fauxtown Connection, which was a huge hit in the early 90's....I don't think he'd find any mainstream success now. He
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can't tell what's going on
+
+641 shares
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year, **Spotlight**, is also about a similar case.
+I think Spotlight has a better ending, to be honest
+>I think Spotlight has a better ending, to be honest    You mean the ending to **Spotlight**
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, there is another star.
+In the far far distance from earths orbit there is another planets
+The moon
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way! We must unite together or we are only a single country!
+We should let them go in peace or be shot ?  I think you really need to think about your priorities. What is more important ? Peace or peace?
+This is a
+------------------------------------------------------------
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework that builds models using Python and uses a data processing pipeline to generate the model output. It is fast, scalable, and easy to learn, and offers a wide range of functionalities.
+
+You can download DeepSpeed 1.x.1.
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on a new game with u/KurtWadler. It has been cancelled unfortunately, this one is probably the demo or the first game.
+Oh man that’s awesome
+------------------------------------------------------------
+
+in=He has a
+out=He has a video showing you how to get him
+He has a video showing how to get all of the event characters. Not just Wasp. And not without spending actual money, like many people doing the same thing I'm doing. They are all different cards
+------------------------------------------------------------
+
+in=He got all
+out=He got all the answers from my notes, and I thought he did a great job. I really liked the section on general relativity, even though that's the one lesson I'm most afraid of. But I think we're all equally at risk in this case!
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can make that happy.
+That's some happy go lucky shit right there.
+It's also a quote for the new Smash game!
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year, ‘Bridge of Spies,’ took two years in making. It was the first time the film got more than 24 weeks of release after its debut in 2011. In all I’ve watched 5 times and never really seen anything
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, a solar system in a galaxy in another galaxy. I'm sure a man with the name, "Armin von Braun" had an influence in that one
+He didn't invent anything, did he?
+He was the first person who had an
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way for the U.S., Iran and Saudi Arabia. They need to make their own countries stable so they cannot go to war.
+In that case they shouldn't even have the right to make bombs and blow each other up.
+That seems extreme
+------------------------------------------------------------
+
+in=DeepSpeed is a machine learning framework
+out=DeepSpeed is a machine learning framework for deep learning in C++,
+utilizing the C++ STL and its data structures, especially vector and list.
+
+This is not your ordinary C++ library for deep learning. It combines
+multiple functionalities that make it quite unique,
+------------------------------------------------------------
+
+in=He is working on
+out=He is working on an album called "Shovel Knight".  I have had a couple of songs and mixes released on the bandcamp page and they were amazing!
+Is the album going to be a full length? I find it tough to follow his YouTube videos
+------------------------------------------------------------
+
+in=He has a
+out=He has a real issue with the police.
+He needs to be punished.
+A lot more.
+I think his sentence should be longer than the others.
+If you wish to sign his petition, you can find some more information here:
+Posted by
+------------------------------------------------------------
+
+in=He got all
+out=He got all the money.  When you buy a used car, the dealer usually keeps some of the profit because it was paid for in cash and doesn't come from financing or insurance.  Maybe they want to make sure you have money to sign for your car
+------------------------------------------------------------
+
+in=Everyone is happy and I can
+out=Everyone is happy and I can’t tell them if I don’t have a reason to be happy. I don’t go out with friends much bc of social anxiety and if I choose to do it with friends it becomes even harder because I feel so embarrassed
+------------------------------------------------------------
+
+in=The new movie that got Oscar this year
+out=The new movie that got Oscar this year and won big this weekend is "The Revenant." It starred Leonardo DiCaprio who gave a masterful performance as a man who must go into the wilderness to survive when he discovers a missing woman.
+
+You know how you think you've
+------------------------------------------------------------
+
+in=In the far far distance from our galaxy,
+out=In the far far distance from our galaxy, there are these giant worm holes leading to other galaxies, and the inhabitants there are going to be absolutely baffled when they discover us :D
+They just won't be able to understand that, like, a planet and it's inhabitants are in completely different
+------------------------------------------------------------
+
+in=Peace is the only way
+out=Peace is the only way you can live. You know what? The only way you can love God is by loving others. That's the only way you can have a good life,” says Guevara at a rally in the city of Barinas on January
+------------------------------------------------------------
+Total time is 21.535444021224976 sec
+[2025-04-28 06:11:45,093] [INFO] [launch.py:351:main] Process 223837 exits successfully.
+[2025-04-28 06:11:45,094] [INFO] [launch.py:351:main] Process 223836 exits successfully.

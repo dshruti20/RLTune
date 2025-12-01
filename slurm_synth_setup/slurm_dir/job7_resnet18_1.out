@@ -1,0 +1,106 @@
+name, utilization.gpu [%], utilization.memory [%]
+Tesla P100-SXM2-16GB, 0 %, 0 %
+Tesla P100-SXM2-16GB, 0 %, 0 %
+Tesla P100-SXM2-16GB, 0 %, 0 %
+Tesla P100-SXM2-16GB, 0 %, 0 %
+Using CUDA
+
+Device: cuda
+
+Files already downloaded and verified
+Files already downloaded and verified
+Running on a single GPU, no parallelism.
+name, utilization.gpu [%], utilization.memory [%]
+Tesla P100-SXM2-16GB, 96 %, 42 %
+Tesla P100-SXM2-16GB, 0 %, 0 %
+Tesla P100-SXM2-16GB, 0 %, 0 %
+Tesla P100-SXM2-16GB, 0 %, 0 %
+Train Epoch: 1 [0/50000 (0%)]	loss=6.8838
+Train Epoch: 1 [1280/50000 (3%)]	loss=6.3911
+Train Epoch: 1 [2560/50000 (5%)]	loss=5.9242
+Train Epoch: 1 [3840/50000 (8%)]	loss=5.5008
+Train Epoch: 1 [5120/50000 (10%)]	loss=5.3165
+Train Epoch: 1 [6400/50000 (13%)]	loss=5.0124
+Train Epoch: 1 [7680/50000 (15%)]	loss=4.8140
+Train Epoch: 1 [8960/50000 (18%)]	loss=4.7286
+Train Epoch: 1 [10240/50000 (20%)]	loss=4.5991
+Train Epoch: 1 [11520/50000 (23%)]	loss=4.4747
+Train Epoch: 1 [12800/50000 (26%)]	loss=4.4068
+Train Epoch: 1 [14080/50000 (28%)]	loss=4.2744
+Train Epoch: 1 [15360/50000 (31%)]	loss=4.3425
+Train Epoch: 1 [16640/50000 (33%)]	loss=4.1394
+Train Epoch: 1 [17920/50000 (36%)]	loss=4.1742
+Train Epoch: 1 [19200/50000 (38%)]	loss=4.0683
+Train Epoch: 1 [20480/50000 (41%)]	loss=4.1329
+Train Epoch: 1 [21760/50000 (43%)]	loss=4.1112
+Train Epoch: 1 [23040/50000 (46%)]	loss=4.2633
+Train Epoch: 1 [24320/50000 (49%)]	loss=4.0313
+Train Epoch: 1 [25600/50000 (51%)]	loss=4.0368
+Train Epoch: 1 [26880/50000 (54%)]	loss=3.9521
+Train Epoch: 1 [28160/50000 (56%)]	loss=3.9808
+Train Epoch: 1 [29440/50000 (59%)]	loss=3.9453
+Train Epoch: 1 [30720/50000 (61%)]	loss=3.9464
+Train Epoch: 1 [32000/50000 (64%)]	loss=3.9795
+Train Epoch: 1 [33280/50000 (66%)]	loss=3.8206
+Train Epoch: 1 [34560/50000 (69%)]	loss=3.9898
+Train Epoch: 1 [35840/50000 (72%)]	loss=3.9948
+Train Epoch: 1 [37120/50000 (74%)]	loss=3.9335
+Train Epoch: 1 [38400/50000 (77%)]	loss=3.9488
+Train Epoch: 1 [39680/50000 (79%)]	loss=3.8453
+Train Epoch: 1 [40960/50000 (82%)]	loss=3.9595
+Train Epoch: 1 [42240/50000 (84%)]	loss=3.7558
+Train Epoch: 1 [43520/50000 (87%)]	loss=3.7687
+Train Epoch: 1 [44800/50000 (90%)]	loss=3.7312
+Train Epoch: 1 [46080/50000 (92%)]	loss=3.9600
+Train Epoch: 1 [47360/50000 (95%)]	loss=3.8966
+Train Epoch: 1 [48640/50000 (97%)]	loss=3.8567
+Train Epoch: 1 [31200/50000 (100%)]	loss=3.6126
+ * Acc@1 12.680 Acc@5 35.530
+name, utilization.gpu [%], utilization.memory [%]
+Tesla P100-SXM2-16GB, 100 %, 43 %
+Tesla P100-SXM2-16GB, 0 %, 0 %
+Tesla P100-SXM2-16GB, 0 %, 0 %
+Tesla P100-SXM2-16GB, 0 %, 0 %
+Train Epoch: 2 [0/50000 (0%)]	loss=3.6949
+Train Epoch: 2 [1280/50000 (3%)]	loss=3.8283
+Train Epoch: 2 [2560/50000 (5%)]	loss=3.6725
+Train Epoch: 2 [3840/50000 (8%)]	loss=3.7060
+Train Epoch: 2 [5120/50000 (10%)]	loss=3.7529
+Train Epoch: 2 [6400/50000 (13%)]	loss=3.6639
+Train Epoch: 2 [7680/50000 (15%)]	loss=3.7656
+Train Epoch: 2 [8960/50000 (18%)]	loss=3.6267
+Train Epoch: 2 [10240/50000 (20%)]	loss=3.6250
+Train Epoch: 2 [11520/50000 (23%)]	loss=3.5427
+Train Epoch: 2 [12800/50000 (26%)]	loss=3.8489
+Train Epoch: 2 [14080/50000 (28%)]	loss=3.7879
+Train Epoch: 2 [15360/50000 (31%)]	loss=3.7237
+Train Epoch: 2 [16640/50000 (33%)]	loss=3.6108
+Train Epoch: 2 [17920/50000 (36%)]	loss=3.5248
+Train Epoch: 2 [19200/50000 (38%)]	loss=3.7620
+Train Epoch: 2 [20480/50000 (41%)]	loss=3.5106
+Train Epoch: 2 [21760/50000 (43%)]	loss=3.7430
+Train Epoch: 2 [23040/50000 (46%)]	loss=3.6712
+Train Epoch: 2 [24320/50000 (49%)]	loss=3.4002
+Train Epoch: 2 [25600/50000 (51%)]	loss=3.7089
+Train Epoch: 2 [26880/50000 (54%)]	loss=3.4547
+Train Epoch: 2 [28160/50000 (56%)]	loss=3.6299
+Train Epoch: 2 [29440/50000 (59%)]	loss=3.7345
+Train Epoch: 2 [30720/50000 (61%)]	loss=3.5302
+Train Epoch: 2 [32000/50000 (64%)]	loss=3.5748
+Train Epoch: 2 [33280/50000 (66%)]	loss=3.6321
+Train Epoch: 2 [34560/50000 (69%)]	loss=3.5297
+Train Epoch: 2 [35840/50000 (72%)]	loss=3.6928
+Train Epoch: 2 [37120/50000 (74%)]	loss=3.6557
+Train Epoch: 2 [38400/50000 (77%)]	loss=3.6518
+Train Epoch: 2 [39680/50000 (79%)]	loss=3.5384
+Train Epoch: 2 [40960/50000 (82%)]	loss=3.6431
+Train Epoch: 2 [42240/50000 (84%)]	loss=3.4905
+Train Epoch: 2 [43520/50000 (87%)]	loss=3.4752
+Train Epoch: 2 [44800/50000 (90%)]	loss=3.4606
+Train Epoch: 2 [46080/50000 (92%)]	loss=3.5917
+Train Epoch: 2 [47360/50000 (95%)]	loss=3.5312
+Train Epoch: 2 [48640/50000 (97%)]	loss=3.5642
+Train Epoch: 2 [31200/50000 (100%)]	loss=3.6290
+ * Acc@1 15.820 Acc@5 40.950
+Total time in seconds: 200
+Total time in seconds: 47
