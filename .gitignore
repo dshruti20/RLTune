@@ -13,8 +13,9 @@ run_*.py
 # Improved/experimental versions
 *_improved.py
 
-# Documentation (skip for now)
-*.md
+# Documentation (skip notes, allow README)
+*_notes.md
+!README.md
 
 # Old CSV backups
 GPU_Traces/old_*
