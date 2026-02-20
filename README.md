@@ -1,6 +1,9 @@
 # RLTune
 
-Reinforcement Learning for GPU Cluster Job Scheduling with tier-based allocation strategies.
+RLTune is a reinforcement learning–driven scheduler for heterogeneous GPU clusters that combines RL-based prioritization with MILP-based allocation strategies to optimize queue delay, GPU utilization, and fragmentation.
+
+📄 Published at ACM SoCC 2025  
+Paper: [Hybrid Learning and Optimization-Based Dynamic Scheduling for DL Workloads on Heterogeneous GPU Clusters](https://dl.acm.org/doi/10.1145/3772052.3772257)
 
 ## Overview
 
@@ -22,24 +25,24 @@ Each cluster implementation includes:
 pip install -r requirements.txt
 ```
 
-Requires TensorFlow 1.x and [Spinning Up](https://github.com/openai/spinningup) for PPO utilities.
+Requires TensorFlow and [Spinning Up](https://github.com/openai/spinningup) for PPO utilities.
 
 ## Quick Start (Philly Example)
 
 ### Training
 
 ```bash
-python philly_train_v2.py --epochs 10 --trajs 100 --sched_algo 0
+python philly_train_v2.py --epochs 100 --trajs 100 --sched_algo 0 --exp_name philly_FCFS_BSLD_batch256_epochs100 --workload GPU_Traces/Philly_Formatted_withGPUType.csv --score_type 0
 ```
 
-This trains a PPO agent for 10 epochs with 100 trajectories per epoch, using FCFS as the baseline.
+This trains a PPO agent for 100 epochs with 100 trajectories per epoch, using FCFS as the baseline.
 
 **Output:** Model checkpoints saved to `data/logs/philly_v2/philly_v2_s0/`
 
 ### Evaluation
 
 ```bash
-python philly_eval_v2.py --rlmodel data/logs/philly_v2/philly_v2_s0 --len 256 --iter 10
+python philly_eval_v2.py --rlmodel data/logs/philly_v2/philly_v2_s0 --sched_algo 0 --len 256 --iter 10 --score_type 0 
 ```
 
 Evaluates the trained model on 10 random batches of 256 jobs, comparing RL vs baseline.
@@ -55,15 +58,13 @@ Evaluates the trained model on 10 random batches of 256 jobs, comparing RL vs ba
 | `--workload` | `GPU_Traces/<cluster>_Formatted_withGPUType.csv` | Path to job trace CSV |
 | `--epochs` | 1 | Number of training epochs |
 | `--trajs` | 100 | Trajectories per epoch |
-| `--seed` | 0 | Random seed |
-| `--sched_algo` | 0 | Baseline algorithm (0=FCFS, 4=SJF) |
+| `--sched_algo` | 0 | Baseline algorithm (FCFS, SJF, F1, Slurm) |
 | `--exp_name` | `<cluster>_v2` | Experiment name for logging |
 | `--pre_trained` | 0 | Load pre-trained model (0=no, 1=yes) |
 | `--trained_model` | `./data/logs/...` | Path to pre-trained model |
 | `--attn` | 0 | Use attention mechanism (0=no, 1=yes) |
 | `--backfil` | 0 | Enable backfill scheduling |
 | `--score_type` | 0 | Job scoring metric: 0=bounded slowdown, 1=wait time, 2=turnaround time, 3=utilization, 4=slowdown |
-| `--batch_job_slice` | 10000 | Max jobs to sample from trace |
 | `--use_milp_allocation` | 0 | Use MILP solver for allocation (0=tier1+lex, 1=MILP) |
 
 ### Evaluation (`*_eval_v2.py`)
@@ -74,10 +75,8 @@ Evaluates the trained model on 10 random batches of 256 jobs, comparing RL vs ba
 | `--workload` | `GPU_Traces/<cluster>_Formatted_withGPUType.csv` | Path to job trace CSV |
 | `--len` | 256 | Number of jobs per evaluation batch |
 | `--iter` | 10 | Number of evaluation iterations |
-| `--seed` | 1 | Random seed |
 | `--sched_algo` | 0 | Baseline algorithm for comparison |
 | `--job_score_type` | 0 | Job scoring metric: 0=bounded slowdown, 1=wait time, 2=turnaround time, 3=utilization, 4=slowdown |
-| `--use_milp_allocation` | 0 | Use MILP solver for RL allocation |
 
 ## Project Structure
 
@@ -97,3 +96,4 @@ RLTune/
 ├── legacy/                    # Previous implementations
 └── requirements.txt
 ```
+
