@@ -1,3 +1,20 @@
 __pycache__/
 *.pyc
 .DS_Store
+
+# Local data and outputs
+data/
+new_exp_figure/
+
+# Test and run scripts (local development)
+test_*.py
+run_*.py
+
+# Improved/experimental versions
+*_improved.py
+
+# Documentation (skip for now)
+*.md
+
+# Old CSV backups
+GPU_Traces/old_*
