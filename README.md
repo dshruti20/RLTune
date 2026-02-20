@@ -7,7 +7,7 @@ Paper: [Hybrid Learning and Optimization-Based Dynamic Scheduling for DL Workloa
 
 ## Overview
 
-RLTune implements RL-based job scheduling for GPU clusters. The framework supports multiple cluster traces:
+RLTune implements RL+MILP-based job scheduling for GPU clusters. The framework supports multiple cluster traces:
 
 - **Helios** - `GPU_Traces/Helios_Formatted_withGPUType.csv`
 - **Philly** - `GPU_Traces/Philly_Formatted_withGPUType.csv`
@@ -96,4 +96,5 @@ RLTune/
 ├── legacy/                    # Previous implementations
 └── requirements.txt
 ```
+
 
