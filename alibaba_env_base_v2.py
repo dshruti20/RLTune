@@ -1,7 +1,7 @@
 """
 Alibaba trace v2: same logic as Helios v2 (tier1/tier2, defrag/load_balance, lex base, MILP for RL).
 No VCs: column 18 = -1, column 19 = GPU type (0-4).
-5 GPU types: 0=T4 (8 nodes x 2 GPUs), 1=MISC (8 x 8), 2=P100 (15 x 2), 3=V100_16GB (10 x 8), 4=V100_32GB (8 x 8).
+5 GPU types: 0=T4 (2 GPUs), 1=MISC (8), 2=P100 (2), 3=V100_16GB (8), 4=V100_32GB (8).
 Each job is bound to one GPU type (pool). Per-pool tier1/tier2 same as Helios.
 """
 import re
