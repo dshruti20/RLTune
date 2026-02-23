@@ -1,9 +1,7 @@
 """
 Philly trace v2: same flow as Helios v2 (tier1/tier2, defrag/load_balance, lex base, MILP for RL).
-Cluster: 16 x 2-GPU nodes (P100), 20 x 8-GPU nodes (P100). No VCs; column 18 = -1, column 19 = 3.
+Cluster: 2-GPU nodes (P100), 8-GPU nodes (P100).
 No mixing: each job uses either only 2-GPU nodes or only 8-GPU nodes.
-- request <= 4 GPUs: can use 2-GPU pool or 8-GPU pool (tier1/tier2 per pool, merge and pick by defrag/lb + lex).
-- request > 4 GPUs: only 8-GPU pool.
 - No tier2 when request == 1 GPU.
 """
 import os
