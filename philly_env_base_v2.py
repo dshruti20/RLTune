@@ -240,6 +240,25 @@ class Cluster_philly:
             merged = _merge_philly_allocation_results(r2, r8, req)
             return merged if merged["assignments"] else None
 
+    def get_allocation_options_for_req(self, req, use_dummy=False, allow_relax_min_nodes=False):
+        """Same as get_allocation_options but keyed by GPU count only. Use for caching when cluster state is fixed."""
+        if req <= 0:
+            return None
+        allow_tier2 = allow_relax_min_nodes and req > 1
+
+        src = self.dummy_cluster_status if use_dummy else self.cluster_status
+        pool_2 = list(src[0])
+        pool_8 = list(src[1])
+
+        if req > 4:
+            r8 = find_gpu_assignments(pool_8, req, PHILLY_GPUS_PER_NODE_LARGE, allow_relax_min_nodes=allow_tier2)
+            return r8 if r8.get("assignments") else None
+        else:
+            r2 = find_gpu_assignments(pool_2, req, PHILLY_GPUS_PER_NODE_SMALL, allow_relax_min_nodes=allow_tier2)
+            r8 = find_gpu_assignments(pool_8, req, PHILLY_GPUS_PER_NODE_LARGE, allow_relax_min_nodes=allow_tier2)
+            merged = _merge_philly_allocation_results(r2, r8, req)
+            return merged if merged["assignments"] else None
+
     def _pick_greedy_assignment(self, result):
         """Lex order on combined tier1 (same as Helios)."""
         tier1 = result.get("tier1", {}).get("all", [])
@@ -392,6 +411,10 @@ class PhillyEnvSkip(HPCEnvSkip):
         total_pool_capacity = PHILLY_NODES_2GPU * PHILLY_GPUS_PER_NODE_SMALL + PHILLY_NODES_8GPU * PHILLY_GPUS_PER_NODE_LARGE
         gpus_per_node = self.cluster.num_gpu_per_node  # 8 for normalization
 
+        # Cache allocation results by request_gpus (cluster state is fixed in this call).
+        # Avoids 128 x 2 find_gpu_assignments per step when many jobs share the same GPU count.
+        alloc_cache = {}
+
         self.pairs = []
         for i in range(0, MAX_QUEUE_SIZE):
             if i < len(self.visible_jobs) and i < MAX_QUEUE_SIZE:
@@ -408,7 +431,11 @@ class PhillyEnvSkip(HPCEnvSkip):
                 normalized_wait_time = min(float(wait_time) / float(MAX_WAIT_TIME), 1.0 - 1e-5)
                 normalized_request_nodes = min(float(request_gpus) / float(self.loads.max_gpu), 1.0 - 1e-5)
 
-                alloc_result = self.cluster.get_allocation_options(job, use_dummy=False, allow_relax_min_nodes=True)
+                if request_gpus not in alloc_cache:
+                    alloc_cache[request_gpus] = self.cluster.get_allocation_options_for_req(
+                        request_gpus, use_dummy=False, allow_relax_min_nodes=True
+                    )
+                alloc_result = alloc_cache[request_gpus]
                 can_schedule = alloc_result is not None and len(alloc_result.get("tier1", {}).get("all", [])) > 0
                 n_tier1 = len(alloc_result["tier1"]["all"]) if alloc_result else 0
                 n_tier2 = len(alloc_result["tier2"]["all"]) if alloc_result else 0
@@ -500,9 +527,39 @@ class PhillyEnvSkip(HPCEnvSkip):
             top_k = self._get_top_k_jobs(self.TOP_K_MILP)
             alloc_result = self.cluster.get_allocation_options(job_for_scheduling, use_dummy=False, allow_relax_min_nodes=True)
             if alloc_result and len(_collect_allocation_ways(alloc_result)) > 1:
+                ways = _collect_allocation_ways(alloc_result)
+                node_ids_used = sorted(set(nid for (a, _) in ways for (nid, _) in a))
                 pool = self.cluster.get_combined_pool(use_dummy=False)
-                pool_3d = _pool_to_3d(pool)
-                chosen = choose_allocation_milp_solver(pool_3d, alloc_result, self.cluster.num_gpu_per_node, top_k)
+                pool_3d_full = _pool_to_3d(pool)
+                # Use reduced pool (only nodes that appear in some allocation way) to speed up MILP when base supports ways_precomputed.
+                chosen = None
+                if len(node_ids_used) < len(pool_3d_full):
+                    idx_to_nid = {i: nid for i, nid in enumerate(node_ids_used)}
+                    nid_to_idx = {nid: i for i, nid in enumerate(node_ids_used)}
+                    reduced_pool_3d = [
+                        (nid_to_idx[nid], g, c, m)
+                        for (nid, g, c, m) in pool_3d_full
+                        if nid in nid_to_idx
+                    ]
+                    ways_remapped = [
+                        ([(nid_to_idx[nid], g) for (nid, g) in a], label)
+                        for (a, label) in ways
+                    ]
+                    try:
+                        chosen = choose_allocation_milp_solver(
+                            reduced_pool_3d, alloc_result, self.cluster.num_gpu_per_node, top_k,
+                            ways_precomputed=ways_remapped
+                        )
+                        if chosen is not None:
+                            chosen = [(idx_to_nid[i], g) for (i, g) in chosen]
+                    except TypeError:
+                        chosen = choose_allocation_milp_solver(
+                            pool_3d_full, alloc_result, self.cluster.num_gpu_per_node, top_k
+                        )
+                if chosen is None:
+                    chosen = choose_allocation_milp_solver(
+                        pool_3d_full, alloc_result, self.cluster.num_gpu_per_node, top_k
+                    )
                 if chosen is not None:
                     self.cluster.selected_machines = chosen
 

@@ -706,14 +706,19 @@ def _job_fit_uses_cpu_mem(job):
 
 
 def choose_allocation_milp_solver(pool_3d, alloc_result, gpus_per_node, top_k_jobs,
-                                  alpha=1.0, beta=0.3, gamma=0.5):
+                                  alpha=1.0, beta=0.3, gamma=0.5, ways_precomputed=None):
     """
     Choose allocation via MILP (cvxpy + GLPK_MI). 3D resources (GPU, CPU, memory).
     When CPU/memory are -1 or not given, fit uses only GPU. Soft objective for next-job fit.
-    pool_3d: list of (node_id, free_gpus, free_cpus, free_memory); use _UNLIMITED when not tracked.
-    Returns best assignment (list of (node_id, gpus)) or None; falls back to first way if solve fails.
+    pool_3d: list of (node_id_or_idx, free_gpus, free_cpus, free_memory); use _UNLIMITED when not tracked.
+    If ways_precomputed is provided, use it instead of _collect_allocation_ways(alloc_result); then
+    pool_3d should be a reduced pool (e.g. only nodes that appear in ways) and assignments use indices.
+    Returns best assignment (list of (node_id_or_idx, gpus)); caller maps back to node_ids if reduced.
     """
-    ways = _collect_allocation_ways(alloc_result)
+    if ways_precomputed is not None:
+        ways = ways_precomputed
+    else:
+        ways = _collect_allocation_ways(alloc_result)
     if not ways:
         return None
     if len(ways) == 1:
@@ -739,7 +744,6 @@ def choose_allocation_milp_solver(pool_3d, alloc_result, gpus_per_node, top_k_jo
     g_wn = np.zeros((W, N))
     c_wn = np.zeros((W, N))
     m_wn = np.zeros((W, N))
-    node_ids = [pool_3d[i][0] for i in range(N)]
     for w, (assignment, _) in enumerate(ways):
         after = _apply_assignment_to_pool_3d(pool_3d, assignment, G)
         for i in range(N):

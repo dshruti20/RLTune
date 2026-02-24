@@ -180,6 +180,23 @@ class Cluster_alibaba:
             return None
         return result
 
+    def get_allocation_options_for_req(self, pool_id, req, use_dummy=False, allow_relax_min_nodes=False):
+        """Same as get_allocation_options but keyed by pool_id and GPU count. Use for caching when cluster state is fixed."""
+        pool = self.dummy_cluster_status[pool_id] if use_dummy else self.cluster_status[pool_id]
+        if not pool:
+            return None
+        free_nodes = list(pool)
+        gpus_per_node = self.num_gpu_per_node[pool_id]
+        result = find_gpu_assignments(
+            free_nodes=free_nodes,
+            request_gpus=req,
+            gpus_per_node=gpus_per_node,
+            allow_relax_min_nodes=allow_relax_min_nodes,
+        )
+        if not result["assignments"]:
+            return None
+        return result
+
     def _pick_greedy_assignment(self, result):
         tier1 = result["tier1"]["all"]
         if not tier1:
@@ -369,6 +386,9 @@ class AlibabaEnvSkip(HPCEnvSkip):
             for i in range(0, MAX_QUEUE_SIZE):
                 self.visible_jobs.append(self.job_queue[i])
 
+        # Cache allocation results by (pool_id, request_gpus); cluster state is fixed in this call.
+        alloc_cache = {}
+
         for i in range(0, MAX_QUEUE_SIZE):
             if i < len(self.visible_jobs) and i < MAX_QUEUE_SIZE:
                 job = self.visible_jobs[i]
@@ -394,7 +414,12 @@ class AlibabaEnvSkip(HPCEnvSkip):
                 normalized_wait_time = min(float(wait_time) / float(MAX_WAIT_TIME), 1.0 - 1e-5)
                 normalized_request_nodes = min(float(request_gpus) / float(self.loads.max_gpu), 1.0 - 1e-5)
 
-                alloc_result = self.cluster.get_allocation_options(job, use_dummy=False)
+                cache_key = (pool_id, request_gpus)
+                if cache_key not in alloc_cache:
+                    alloc_cache[cache_key] = self.cluster.get_allocation_options_for_req(
+                        pool_id, request_gpus, use_dummy=False, allow_relax_min_nodes=True
+                    )
+                alloc_result = alloc_cache[cache_key]
                 can_schedule = alloc_result is not None and len(alloc_result["tier1"]["all"]) > 0
                 n_tier1 = len(alloc_result["tier1"]["all"]) if alloc_result else 0
                 n_tier2 = len(alloc_result["tier2"]["all"]) if alloc_result else 0
@@ -472,9 +497,35 @@ class AlibabaEnvSkip(HPCEnvSkip):
             if alloc_result and len(_collect_allocation_ways(alloc_result)) > 1:
                 pool_id = job_for_scheduling.gpu_type_id
                 pool = list(self.cluster.cluster_status[pool_id])
-                pool_3d = _pool_to_3d(pool)
+                pool_3d_full = _pool_to_3d(pool)
                 gpus_per_node = self.cluster.num_gpu_per_node[pool_id]
-                chosen = choose_allocation_milp_solver(pool_3d, alloc_result, gpus_per_node, top_k)
+                ways = _collect_allocation_ways(alloc_result)
+                node_ids_used = sorted(set(nid for (a, _) in ways for (nid, _) in a))
+                # Reduced pool (only nodes in allocation ways) to speed up MILP when base supports ways_precomputed.
+                chosen = None
+                if len(node_ids_used) < len(pool_3d_full):
+                    idx_to_nid = {i: nid for i, nid in enumerate(node_ids_used)}
+                    nid_to_idx = {nid: i for i, nid in enumerate(node_ids_used)}
+                    reduced_pool_3d = [
+                        (nid_to_idx[nid], g, c, m)
+                        for (nid, g, c, m) in pool_3d_full
+                        if nid in nid_to_idx
+                    ]
+                    ways_remapped = [
+                        ([(nid_to_idx[nid], g) for (nid, g) in a], label)
+                        for (a, label) in ways
+                    ]
+                    try:
+                        chosen = choose_allocation_milp_solver(
+                            reduced_pool_3d, alloc_result, gpus_per_node, top_k,
+                            ways_precomputed=ways_remapped
+                        )
+                        if chosen is not None:
+                            chosen = [(idx_to_nid[i], g) for (i, g) in chosen]
+                    except TypeError:
+                        chosen = choose_allocation_milp_solver(pool_3d_full, alloc_result, gpus_per_node, top_k)
+                if chosen is None:
+                    chosen = choose_allocation_milp_solver(pool_3d_full, alloc_result, gpus_per_node, top_k)
                 if chosen is not None:
                     self.cluster.selected_machines = chosen
 
