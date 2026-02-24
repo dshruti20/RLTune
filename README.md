@@ -47,8 +47,6 @@ python helios_eval_v2.py --rlmodel data/logs/helios_v2/helios_v2_s0 --sched_algo
 
 Evaluates the trained model on 10 random batches of 256 jobs, comparing RL vs baseline.
 
-**Output:** Performance comparison and plot saved to `new_exp_figure/philly/test.png`
-
 ## Command Line Options
 
 ### Training (`*_train_v2.py`)
@@ -96,6 +94,7 @@ RLTune/
 ├── legacy/                    # Previous implementations
 └── requirements.txt
 ```
+
 
 
 
