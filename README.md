@@ -27,22 +27,22 @@ pip install -r requirements.txt
 
 Requires TensorFlow and [Spinning Up](https://github.com/openai/spinningup) for PPO utilities.
 
-## Quick Start (Philly Example)
+## Quick Start (Helios Example)
 
 ### Training
 
 ```bash
-python philly_train_v2.py --epochs 100 --trajs 100 --sched_algo 0 --exp_name philly_FCFS_BSLD_batch256_epochs100 --workload GPU_Traces/Philly_Formatted_withGPUType.csv --score_type 0
+python helios_train_v2.py --epochs 100 --trajs 100 --sched_algo 0 --exp_name helios_FCFS_BSLD_batch256_epochs100 --workload GPU_Traces/Helios_Formatted_withGPUType.csv --score_type 0
 ```
 
 This trains a PPO agent for 100 epochs with 100 trajectories per epoch, using FCFS as the baseline.
 
-**Output:** Model checkpoints saved to `data/logs/philly_v2/philly_v2_s0/`
+**Output:** Model checkpoints saved to `data/logs/helios_v2/helios_v2_s0/`
 
 ### Evaluation
 
 ```bash
-python philly_eval_v2.py --rlmodel data/logs/philly_v2/philly_v2_s0 --sched_algo 0 --len 256 --iter 10 --score_type 0 
+python helios_eval_v2.py --rlmodel data/logs/helios_v2/helios_v2_s0 --sched_algo 0 --len 256 --iter 10 --score_type 0 
 ```
 
 Evaluates the trained model on 10 random batches of 256 jobs, comparing RL vs baseline.
@@ -96,5 +96,6 @@ RLTune/
 ├── legacy/                    # Previous implementations
 └── requirements.txt
 ```
+
 
 
